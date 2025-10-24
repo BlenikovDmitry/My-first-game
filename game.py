@@ -170,25 +170,6 @@ def retry():
     main_game_screen()
     
     
-
-#обработчик окна рекордов
-def show_records():
-    clear_window()
-    lbl_title = tk.Label(master = window, text = 'Рекорды:', font=('Arial', 24, 'bold'), bg='#FFDAB9')
-    lbl_title.pack()
-
-    text_widget = tk.Text(window,bg='#EEE8AA',font=('Arial', 10, 'bold'))
-
-    f = open('records.txt', encoding = 'utf-8')
-    for line in f:
-        text_widget.insert('end',line)
-
-    f.close()
-    text_widget.pack()
-    text_widget.configure(state="disabled")
-    # Создаем кнопку для получения текста из поля ввода имени игрока
-    records_button = Button(master = window, width = 20, text="Вернуться на главный", command=back, font=('Arial', 18, 'bold'))
-    records_button.pack(pady = 10)
         
 def clear_window():
     # Удалить все объекты из окна
@@ -217,11 +198,6 @@ def init():
     global start_button
     start_button = Button(master = window, width = 20, text="Начать игру", command=start_game, font=('Arial', 18, 'bold'))
     start_button.grid(row = 3, column = 0, padx = 5, pady = 5)
-
-    # Создаем кнопку для вызова экрана рекордов
-    global records_button
-    records_button = Button(master = window, width = 20, text="Рекорды", command=show_records, font=('Arial', 18, 'bold'))
-    records_button.grid(row = 4, column = 0, padx = 5, pady = 5)
 
     pname_label_welcome.grid(row = 5, column = 0, padx = 5, pady = 5)
     
